@@ -62,20 +62,44 @@
       justify-content: space-around;
     }
     body {
-    min-height: 500vh;
-    max-width: 100vh;
     background-color: light-grey; 
     margin: 0 auto;
 }
+    .banner{
+      background-image: url("https://clincoln8.github.io/evosuite-plus-plus/imgs/banner.png");
+      background-size: contain;
+      min-height:20vh;
+      text-align: center;
+      padding: 2vh;
+      vertical-align: middle;
+    }
+    .content{
+      padding: 2vh;
+    }
   </style>
 </head>
 
 <body>
+  <div>
+    <h1>EvoObj Dev Docs</h1>
+  </div>
+  <div class="banner">
+    <h1 class="font-medium leading-tight text-5xl mt-0 mb-2">	EvoObj / EvoSuite Developer Documentation</h1>
+    <br><p>Documentation for how EvoObj works under the hood.</p>
+  </div>
+  <div class="content">
+
+  <div>
+    <p>
+      This site is to provide developer documentation for <a href="https://sites.google.com/view/evoobj/home">EvoObj</a> [1] and by extension <a href="https://www.evosuite.org/">EvoSuite</a> [2]. This site has been created for educational purposes only and is in no way endorsed or acknowledge by EvoObj nor EvoSuite.
+    </p>
+  </div>
   <span>
     <button type="button" id="expand-all">Expand All</button>
     <div id="root" class="tree">
     </div>
   </span>
+  </div>
 </body>
 <script>
 
