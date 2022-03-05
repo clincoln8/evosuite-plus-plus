@@ -64,6 +64,7 @@
     body {
     background-color: light-grey; 
     margin: 0 auto;
+      
 }
     .banner{
       background-image: url("https://clincoln8.github.io/evosuite-plus-plus/imgs/banner.png");
@@ -71,20 +72,33 @@
       min-height:20vh;
       text-align: center;
       padding: 2vh;
-      vertical-align: middle;
+      vertical-align: middle; 
+      background-color: rgba(255, 255, 255, 0.3);
+        background-blend-mode: overlay;
+
     }
     .content{
       padding: 2vh;
     }
+    footer{
+        flex-direction: column;
+
+      position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem; 
+      display: flex;
+  justify-content: flex-end;
   </style>
 </head>
 
 <body>
-  <div>
-    <h1>EvoObj Dev Docs</h1>
+  <div class="inline-flex p-4">
+<img src="https://img.icons8.com/metro/50/000000/search.png"/>
+    <h1 class="font-medium leading-tight text-2xl mt-2 mb-2 pl-4">EvoObj Dev Docs</h1>
   </div>
   <div class="banner">
-    <h1 class="font-medium leading-tight text-5xl mt-0 mb-2">	EvoObj / EvoSuite Developer Documentation</h1>
+    <h1 class="font-bold leading-tight text-5xl ">	EvoObj & EvoSuite Developer Documentation</h1>
     <br><p>Documentation for how EvoObj works under the hood.</p>
   </div>
   <div class="content">
@@ -100,6 +114,14 @@
     </div>
   </span>
   </div>
+  <footer class="float-bottom">
+    <div class="bg-gray-100 text-center lg:text-left">
+    <p class="text-xs">
+      <a href="https://icons8.com/icon/131/search">Search icon by Icons8</a>
+        
+      </p>
+    </div>
+    </footer>
 </body>
 <script>
 
