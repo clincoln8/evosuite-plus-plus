@@ -1,5 +1,5 @@
 <head>
-  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
     .caret {
       cursor: pointer;
@@ -51,9 +51,9 @@
 <body class="min-h-screen flex flex-col justify-between">
 
   <!--  Separate rest of page from footer  -->
-  <div>
+  <div class="flex flex-col grow">
     <!--  Top Title    -->
-    <div class="inline-flex p-4">
+    <div class="inline-flex p-2">
       <img src="https://img.icons8.com/metro/50/000000/search.png"/>
       <h1 class="font-medium leading-tight text-2xl mt-2 mb-2 pl-4">EvoObj Dev Docs</h1>
     </div>
@@ -65,8 +65,8 @@
     </div>
 
     <!--  Page Content  -->
-    <div class="p-2">
-
+    <div class="p-4">
+      <div>
       <!--  Intro Text    -->
       <div>
         <p>
@@ -75,24 +75,34 @@
       </div>
 
       <!--  EvoSuite Workflow    -->
-      <div class="pt-4 flex flex-col space-y-4">
+      <div class="flex flex-col mt-4 space-y-4">
         <button type="button" id="expand-all" class="w-1/6 bg-blue-400 hover:bg-blue-700 border border-gray-400 text-white font-bold text-m py-2 px-4 rounded-full shadow">Expand All</button>
 
         <!-- Workflow is added to this div via JS  -->
         <div id="root" class="flex justify-evenly"></div>
       </div>
+      </div>
+
     </div>
   </div>
 
   <!--  Footer  -->
-  <footer class="flex-col justify-end border ">
-    <div class="bg-gray-100 text-center">
+  <div class="flex flex-col justify-end">
+    <!--    References    -->
+      <div class="p-4">
+        <h2 class="text-m font-bold">References</h2>
+        <p>
+[1] Lin, Y., Ong, Y.S., Sun, J., Fraser, G. and Dong, J.S., 2021. Graph-based seed object synthesis for search-based unit testing. In <i>Proceedings of the 29th ACM Joint Meeting on European Software Engineering Conference and Symposium on the Foundations of Software Engineering</i> (pp. 1068-1080).
+<br>
+[2] Fraser, G. and Arcuri, A., 2011. Evosuite: Automatic Test Suite Generation for Object-Oriented Software. In <i>Proceedings of the 19th ACM SIGSOFT Symposium and the 13th European Conference on Foundations of Software Engineering</i> (pp. 416-419).</p> 
+      </div>
+    
+    <div class="bg-gray-100 text-center border">
       <p class="text-xs">
         <a href="https://icons8.com/icon/131/search">Search icon by Icons8</a>
-
       </p>
     </div>
-  </footer>
+  </div>
 </body>
 <script>
 
