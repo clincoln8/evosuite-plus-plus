@@ -1,20 +1,6 @@
 <head>
   <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
   <style>
-    ul, #myUL {
-
-    }
-
-
-    #myUL {
-      margin: 0;
-      padding: 0;
-      /*display: flex;
-      list-style-type: none;
-      align-items: center;
-      justify-content: space-around; */
-    }
-
     .caret {
       cursor: pointer;
       -webkit-user-select: none; /* Safari 3.1+ */
@@ -37,33 +23,18 @@
     }
 
     .nested {
-      display: none; /* TODO change to none */
+      display: none;
     }
 
     .active {
       display: block;
     }
 
-    .evoobj-mod {
-      /*color: orange;*/
-    }
-
-    .evoobj-add {
-      /*color: green;*/
-    }
     a{
       color: blue;
       text-decoration: underline;
     }
 
-    .tree{
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-    }
-    body {
-    background-color: light-grey;       
-}
     .banner{
       background-image: url("https://clincoln8.github.io/evosuite-plus-plus/imgs/banner.png");
       background-size: contain;
@@ -71,58 +42,62 @@
       padding: 4vh;
       vertical-align: middle; 
       background-color: rgba(255, 255, 255, 0.3);
-        background-blend-mode: overlay;
+      background-blend-mode: overlay;
 
-    }
-    .content{
-      padding: 2vh;
     }
   </style>
 </head>
 
-<body class="min-h-screen flex flex-col justify-between">
-  
-  <div>
-  <div class="inline-flex p-4">
-<img src="https://img.icons8.com/metro/50/000000/search.png"/>
-    <h1 class="font-medium leading-tight text-2xl mt-2 mb-2 pl-4">EvoObj Dev Docs</h1>
-  </div>
-  
-  <div class="banner">
-    <h1 class="font-bold leading-tight text-5xl ">	EvoObj & EvoSuite Developer Documentation</h1>
-    <br><p>Documentation for how EvoObj works under the hood.</p>
-  </div>
-  
-  
-  <div class="content">
+<body class="min-h-screen flex flex-col justify-between bg-gray-50">
 
+  <!--  Separate rest of page from footer  -->
   <div>
-    <p>
-      This site is to provide developer documentation for <a href="https://sites.google.com/view/evoobj/home">EvoObj</a> [1] and by extension <a href="https://www.evosuite.org/">EvoSuite</a> [2]. This site has been created for educational purposes only and is in no way endorsed or acknowledge by EvoObj nor EvoSuite.
-    </p>
-  </div>
-    
-  <div class="pt-4 flex flex-col space-y-4">
-    <button type="button" id="expand-all" class="w-1/6 bg-blue-400 hover:bg-blue-700 border border-gray-400 text-white font-bold text-m py-2 px-4 rounded-full shadow">Expand All</button>
-    <div id="root" class="tree">
+    <!--  Top Title    -->
+    <div class="inline-flex p-4">
+      <img src="https://img.icons8.com/metro/50/000000/search.png"/>
+      <h1 class="font-medium leading-tight text-2xl mt-2 mb-2 pl-4">EvoObj Dev Docs</h1>
+    </div>
+
+    <!--   Banner   -->
+    <div class="banner">
+      <h1 class="font-bold leading-tight text-5xl ">	EvoObj & EvoSuite Developer Documentation</h1>
+      <br><p>Documentation for how EvoObj works under the hood.</p>
+    </div>
+
+    <!--  Page Content  -->
+    <div class="p-2">
+
+      <!--  Intro Text    -->
+      <div>
+        <p>
+          This site is to provide developer documentation for <a href="https://sites.google.com/view/evoobj/home">EvoObj</a> [1] and by extension <a href="https://www.evosuite.org/">EvoSuite</a> [2]. This site has been created for educational purposes only and is in no way endorsed or acknowledge by EvoObj nor EvoSuite.
+        </p>
+      </div>
+
+      <!--  EvoSuite Workflow    -->
+      <div class="pt-4 flex flex-col space-y-4">
+        <button type="button" id="expand-all" class="w-1/6 bg-blue-400 hover:bg-blue-700 border border-gray-400 text-white font-bold text-m py-2 px-4 rounded-full shadow">Expand All</button>
+
+        <!-- Workflow is added to this div via JS  -->
+        <div id="root" class="flex justify-evenly"></div>
+      </div>
     </div>
   </div>
-  </div>
-  </div>
-  
+
+  <!--  Footer  -->
   <footer class="flex-col justify-end border ">
     <div class="bg-gray-100 text-center">
-    <p class="text-xs">
-      <a href="https://icons8.com/icon/131/search">Search icon by Icons8</a>
-        
+      <p class="text-xs">
+        <a href="https://icons8.com/icon/131/search">Search icon by Icons8</a>
+
       </p>
     </div>
-    </footer>
+  </footer>
 </body>
 <script>
 
-  const evoObjModClass = ["evoobj-mod", "bg-yellow-200"];
-  const evoObjAddClass = ["evoobj-add", "bg-orange-200"];
+  const evoObjModClass = ["bg-yellow-200"];
+  const evoObjAddClass = ["bg-orange-200"];
 
   const master = {
     title: '<a href="https://github.com/llmhyy/evosuite-plus-plus/tree/master/client">/master</a>',
@@ -173,20 +148,20 @@
   const searchAlgoNodes = [{ 
     title: 'Builds a genetic algorithm.',
     description: `<a href=""https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/strategy/PropertiesSuiteGAFactory.java#L102">getChromosomeFactory()</a> uses Properties.<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/Properties.java#L1298">TEST_FACTORY</a> and returns an <a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/ga/archive/ArchiveTestChromosomeFactory.java#L35">ArchiveTestChromosomeFactory</a> by default.
-    
+
     <br><br><a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/strategy/PropertiesSuiteGAFactory.java#L139">getGeneticAlgorithm()</a> uses Properties.<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/c2ea99f2e7f55ae4e04ebeca1e3d588842982b3c/client/src/main/java/org/evosuite/Properties.java#L394">ALGORITHM</a> returns <a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/ga/metaheuristics/MonotonicGA.java#L74">MonotonicGA</a> by default, initialized with the ChromosomeFactory from above.
-    
+
     <br><br><a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/strategy/PropertiesSuiteGAFactory.java#L249">getSelectionFunction()</a> uses Properties.<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/Properties.java#L706">SELECTION_FUNCTION</a> and returns <a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/ga/operators/selection/RankSelection.java#L34">RankSelection</a> by default. 
-    
+
     <br><br><a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/strategy/PropertiesSuiteGAFactory.java#L290">getRankingFunction()</a> uses Properties.<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/Properties.java#L391">RANKING_TYPE</a> and returns <a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/ga/operators/ranking/RankBasedPreferenceSorting.java#L41">RankBasedPreferenceSorting</a> by default.
-    
-    
+
+
     <br><br><a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/strategy/PropertiesSuiteGAFactory.java#L268">getCrossoverFunction()</a> uses Properties.<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/Properties.java#L674">CROSSOVER_FUNCTION</a> and returns <a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/ga/operators/crossover/SinglePointRelativeCrossOver.java#L31">SinglePointRelativeCrossOver</a> by default.
-    
+
     <br><br><a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/testsuite/secondaryobjectives/TestSuiteSecondaryObjective.java#L36">setSecondaryObjectives()</a> adds each Properties.<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/Properties.java#L724">SECONDARY_OBJECTIVE</a>, to the <a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/testsuite/TestSuiteChromosome.java#L51">TestSuiteChromosome</a>. <a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/testsuite/secondaryobjectives/MinimizeTotalLengthSecondaryObjective.java#L30">MinimizeTotalLengthSecondaryObjective</a> is added by default.
-    
+
    <br><br><a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/strategy/PropertiesSearchAlgorithmFactory.java#L64">getStoppingCondition()</a> uses Properties.<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/Properties.java#L667">STOPPING_CONDITION</a> and returns MaxTimeStoppingCondition by default.
-    
+
    <br><br><a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/strategy/PropertiesSearchAlgorithmFactory.java#L51">getPopulationLimit()</a> uses Properties.<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/Properties.java#L644">POPULATION_LIMIT</a> and returns <a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/ga/populationlimit/IndividualPopulationLimit.java#L36">IndividualPopulationLimit</a> by default.`,
     children:[],
   }];
@@ -265,52 +240,52 @@
             {
               function: '<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/TestSuiteGenerator.java#L708">generateTests()</a>',
               nodes:[
-               { 
+                { 
                   title: '<a href="https://github.com/llmhyy/evosuite-plus-plus/tree/master/client/src/main/java/org/evosuite/strategy">TestGenerationStrategy</a>',
                   description: '<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/TestSuiteGenerator.java#L718">returned</a> from TestSuiteGeneratorHelper.<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/TestSuiteGeneratorHelper.java#L252">getTestGenerationStrategy()</a>. The following assumes that <a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/Properties.java#L1614">Properties.STRATEGY</a> is set to EVOSUITE (default), which will set the strategy to <a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/strategy/WholeTestSuiteStrategy.java#L54">WholeTestSuiteStrategy</a>',
                   children:[
                     {function: 'strategy.<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/strategy/WholeTestSuiteStrategy.java#L57">generateTests</a>()',
                      nodes: [
                        { 
-                  title: 'PropertiesSuiteGAFactory',
-                  description: '',
-                  children:[
-                    {function: 'algorithmFactory.<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/strategy/PropertiesSuiteGAFactory.java#L305">getSearchAlgorithm()</a>',
-                     nodes: searchAlgoNodes,
-                    },
-                  ],
-                },
-                { title: '<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/strategy/TestGenerationStrategy.java#L86">getFitnessFunctions()</a>',
-                 description: 'Sets fitness functions with a helper method FitnessFunctions.<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/coverage/FitnessFunctions.java#L113">getFitnessFunction()</a> based on Properties.<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/Properties.java#L1494">CRITERION</a> list.',
-                 children:[],
-                },
-                { 
-                  title: '<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/strategy/WholeTestSuiteStrategy.java#L174">getGoals()</a>',
-                  description: `* Initializes fitness factories via helper <a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/coverage/FitnessFunctions.java#L180">getFitnessFactory()</a> based on Properties.CRITERION.
+                         title: 'PropertiesSuiteGAFactory',
+                         description: '',
+                         children:[
+                           {function: 'algorithmFactory.<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/strategy/PropertiesSuiteGAFactory.java#L305">getSearchAlgorithm()</a>',
+                            nodes: searchAlgoNodes,
+                           },
+                         ],
+                       },
+                       { title: '<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/strategy/TestGenerationStrategy.java#L86">getFitnessFunctions()</a>',
+                        description: 'Sets fitness functions with a helper method FitnessFunctions.<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/coverage/FitnessFunctions.java#L113">getFitnessFunction()</a> based on Properties.<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/Properties.java#L1494">CRITERION</a> list.',
+                        children:[],
+                       },
+                       { 
+                         title: '<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/strategy/WholeTestSuiteStrategy.java#L174">getGoals()</a>',
+                         description: `* Initializes fitness factories via helper <a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/coverage/FitnessFunctions.java#L180">getFitnessFactory()</a> based on Properties.CRITERION.
                   <br><br>* Gets coverage goals from each factory; <a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/coverage/method/MethodCoverageFactory.java#L60">example</a>`,
-                  children:[],
-                }  ,           
-                { 
-                  title: 'MonotonicGA',
-                  description: "given the necessary flags, this will be the algorithm created above by the PropertiesSuiteGAFactory",
-                  children:[
-                    {
-                      function: '<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/c2ea99f2e7f55ae4e04ebeca1e3d588842982b3c/client/src/main/java/org/evosuite/ga/metaheuristics/MonotonicGA.java#L282">generateSolution()</a>',
-                      nodes:[
-                        { 
-                          title: '<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/ga/metaheuristics/MonotonicGA.java#L263">initializePopulation()</a>',
-                          description: 'Initializes a population as a list of <a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/testcase/TestChromosome.java#L63">Test Chromosomes</a> of length Properties.POPULATION ',
-                          children: initPopulation,
-                        },
-                        { 
-                          title: 'todo',
-                          description: '* updatePopulation, evolve, sort, get best...',
-                          children:[],
-                        } ]},],}
-                  ],}]
+                         children:[],
+                       }  ,           
+                       { 
+                         title: 'MonotonicGA',
+                         description: "given the necessary flags, this will be the algorithm created above by the PropertiesSuiteGAFactory",
+                         children:[
+                           {
+                             function: '<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/c2ea99f2e7f55ae4e04ebeca1e3d588842982b3c/client/src/main/java/org/evosuite/ga/metaheuristics/MonotonicGA.java#L282">generateSolution()</a>',
+                             nodes:[
+                               { 
+                                 title: '<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/ga/metaheuristics/MonotonicGA.java#L263">initializePopulation()</a>',
+                                 description: 'Initializes a population as a list of <a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/testcase/TestChromosome.java#L63">Test Chromosomes</a> of length Properties.POPULATION ',
+                                 children: initPopulation,
+                               },
+                               { 
+                                 title: 'todo',
+                                 description: '* updatePopulation, evolve, sort, get best...',
+                                 children:[],
+                               } ]},],}
+                     ],}]
                 },
-                
-                ]},]}]},
+
+              ]},]}]},
       {
         function: 'test()',
         nodes:[
@@ -324,7 +299,7 @@
 
     const title = document.createElement("span");
     title.innerHTML = content.title;
-    
+
 
     if (content.children.length){
       title.classList.add("caret");
@@ -337,7 +312,7 @@
     li.appendChild(title);
     li.appendChild(desc);          
     li.classList.add("box-border", "p-4", "border-4");
-if ('spanClass' in content){
+    if ('spanClass' in content){
       li.classList.add(...content.spanClass);
     }
     return li
@@ -403,14 +378,14 @@ if ('spanClass' in content){
 
     iFrame.width  = iFrame.contentWindow.document.body.scrollWidth;
     iFrame.height = iFrame.contentWindow.document.body.scrollHeight;
-}
-
-window.addEventListener('DOMContentLoaded', function(e) {
-
-    var iFrame = document.getElementById( 'userHtmlFrame' );
-  if (iFrame){
-    resizeIFrameToFitContent( iFrame );
   }
 
-} );
+  window.addEventListener('DOMContentLoaded', function(e) {
+
+    var iFrame = document.getElementById( 'userHtmlFrame' );
+    if (iFrame){
+      resizeIFrameToFitContent( iFrame );
+    }
+
+  } );
 </script>
