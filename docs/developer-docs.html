@@ -103,11 +103,17 @@
               <div id="monotonic"></div>
             </div>
             </div>
-          <div>
+          <div class="mt-4">
             <h1 class="font-bold text-2xl">Confusing Points</h1>
-
-            <p>TestSuite vs TestCase/TestChromosome </p>
-            <p>TestSuiteFitness vs TestFitness</p>
+            <ul class="list-disc px-4">
+              <li><h3 class="text-lg">TestSuite vs TestCase/TestChromosome </h3>
+                <p>A TestSuiteChromosome is made up of many TestChromosomes. Each TestChromosome has a 1:1 correspondance with a TestCase.</p>
+              </li>
+              <li>
+            <h3 class="text-lg">TestSuiteFitness vs FitnessFactory</h3>
+                <p>TestSuiteFitnessFunctions evaluates fitness for a TestSuiteChromosome. A FitnessFactory extends AbstractFitnessFactory which implements TestFitnessFactory these also get fitness of a TestSuiteChromosome. However, each one of these factories takes a specific implementation of TestFitnessFunction. These FitnessFunctions get the fitness for a TestChromosome. The advantage of a FitnessFactory is that they can return coverage goals whereas TestSuiteFitnessFunctions only return fitness.</p>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
