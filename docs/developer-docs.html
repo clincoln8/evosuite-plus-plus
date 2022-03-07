@@ -77,7 +77,7 @@
     </div>
 
     <!--  Page Content  -->
-    <div class="p-4 page-content">
+    <div class="p-4 page-content flex flex-col justify-around">
       <!--  Intro Text    -->
       <div>
         <p>
@@ -109,11 +109,6 @@
             <p>TestSuite vs TestCase/TestChromosome </p>
             <p>TestSuiteFitness vs TestFitness</p>
           </div>
-          <div>
-            <h1 class="font-bold text-2xl">Extending EvoSuite/EvoObj</h1>
-            <p>TestSuite vs TestCase/TestChromosome </p>
-            <p>TestSuiteFitness vs TestFitness</p>
-          </div>
         </div>
       </div>
 
@@ -142,14 +137,14 @@
 
       const master = {
         title: '<a href="https://github.com/llmhyy/evosuite-plus-plus/tree/master/client">/master</a>',
-        description: 'description here',
+        description: 'Handles the command line interface, passing the inputs to a client instance and manages the generated test cases.',
         children: [
           {
             function: '<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/master/src/main/java/org/evosuite/EvoSuite.java#L317">Evosuite.java</a>',
             nodes: [
               {
                 title: '<a href="">TestGeneration</a>',
-                description: 'todo',
+                description: '',
                 spanClass: "evoobj-add",
                 children: [
                   { 
@@ -265,7 +260,7 @@
               function: '',
               nodes:[{
                 title: '',
-                description: `For each TestSuiteChromosome in the population:
+                description: `<div>For each TestSuiteChromosome in the population:
         <ul class="list-disc list-inside">
         <br>
  <li><a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/ga/metaheuristics/GeneticAlgorithm.java#L656">Calculate</a>
@@ -280,7 +275,7 @@
          <br>
       <li><a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/ga/metaheuristics/GeneticAlgorithm.java#L985">Sorts</a> the TestSuiteChromsome population based on Collection.sort
       </li>
-      </ul>`,
+      </ul></div>`,
                 children:[],
               }]
             }]
@@ -291,9 +286,9 @@
 
       const client = {
         title: '<a href="https://github.com/llmhyy/evosuite-plus-plus/tree/master/client">/client</a>',
-        description: 'description here<br>Client side is initiated when  TestGeneration.<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/master/src/main/java/org/evosuite/executionmode/TestGeneration.java#L213">generateTests()</a> in /master instantiates a ClientNodeImpl object which',
+        description: 'Handles the main functionality of EvoSuite - test generation. CLI inputs are passed to the client side via <a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/Properties.java#L724">Properties.java</a> which are used to build the test generation environment.<br>Client side is initiated when  TestGeneration.<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/master/src/main/java/org/evosuite/executionmode/TestGeneration.java#L213">generateTests()</a> in /master instantiates a ClientNodeImpl object which <a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/master/src/main/java/org/evosuite/executionmode/TestGeneration.java#L509">calls</a>:',
         children: [
-          {function: '<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/master/src/main/java/org/evosuite/executionmode/TestGeneration.java#L509">calls</a> <a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/rmi/service/ClientNodeImpl.java#L134">startNewSearch()</a>', 
+          {function: '<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/rmi/service/ClientNodeImpl.java#L134">startNewSearch()</a>', 
            nodes: [
              {title: '<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/rmi/service/ClientNodeImpl.java#L157">calls</a> TestSuiteGenerator.<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/TestSuiteGenerator.java#L139">generateTestSuite()</a>',
               description: '',
@@ -340,9 +335,13 @@
                            },
                            { 
                              title: '<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/strategy/WholeTestSuiteStrategy.java#L174">getGoals()</a>',
-                             description: `* Helper function <a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/coverage/FitnessFunctions.java#L180">getFitnessFactory()</a> uses Properties.CRITERION to retrieve a list of factories extending <a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/testsuite/AbstractFitnessFactory.java#L35">AbstractFitnessFactory</a> which implements <a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/coverage/TestFitnessFactory.java">TestFitnessFactory</a>&lt<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/testcase/TestFitnessFunction.java">TestFitnessFunction</a>&ltTestChromsome&gt&gt. (<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/coverage/branch/BranchCoverageFactory.java#L42">example</a>) 
-
-                 <br><br>* Returns all TestFitnessFactory objects from each factory by calling the factory's getCoverageGoals() function.(<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/coverage/branch/BranchCoverageFactory.java#L53">example</a>)`,
+                             description: `
+                             <ul class="list-disc">
+                             <li>Helper function <a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/coverage/FitnessFunctions.java#L180">getFitnessFactory()</a> uses Properties.CRITERION to retrieve a list of factories extending <a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/testsuite/AbstractFitnessFactory.java#L35">AbstractFitnessFactory</a> which implements <a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/coverage/TestFitnessFactory.java">TestFitnessFactory</a>&lt<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/testcase/TestFitnessFunction.java">TestFitnessFunction</a>&ltTestChromsome&gt&gt. (<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/coverage/branch/BranchCoverageFactory.java#L42">example</a>) 
+                             </li>
+<br>
+                 <li>Returns all TestFitnessFactory objects from each factory by calling the factory's getCoverageGoals() function.(<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/coverage/branch/BranchCoverageFactory.java#L53">example</a>)
+                 </li></ul>`,
                              children:[],
                            }  ,           
                            { 
@@ -380,7 +379,7 @@
         description: '',
         children: [
           {
-            function: '',
+            function: 'After running <a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/ga/metaheuristics/MonotonicGA.java#L263">initializePopulation()</a> from above:',
             nodes: [
               {
                 title: '<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/ga/metaheuristics/MonotonicGA.java#L300">setInitialCoverage()</a>',
@@ -401,7 +400,7 @@
             nodes: [
               {
                 title: '<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/ga/metaheuristics/MonotonicGA.java#L107">evolve()<a/>',
-                description: 'todo',
+                description: '',
                 children: [],
               },
               {
@@ -411,36 +410,19 @@
               },
               {
                 title: '<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/ga/metaheuristics/MonotonicGA.java#L707">getBestFitness()</a>',
-                description: `
-            getBestIndividual()
-            `,
+                description: 'updates then returns the fitness for each FitnessFunction of the <a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/ga/metaheuristics/GeneticAlgorithm.java#L784">best individual</a>.',
                 children: [],
               },
               {
-                title: 'applyLocalSearch()',
+                title: '<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/ga/metaheuristics/GeneticAlgorithm.java#L243">applyLocalSearch()</a>',
                 description: '',
-                children: [],
-              },
-              {
-                title: 'update Starvation Counter ',
-                description: 'based on the best individual from current population vs previous iterations',
-                children: [],
-              },
-              {
-                title: 'update secondary criterion ',
-                description: 'todo ',
-                children: [],
-              },
-              {
-                title: 'updateDistribution()',
-                description: 'todo ',
                 children: [],
               },
 
             ]
           },
           {
-            function: '<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/ga/metaheuristics/MonotonicGA.java#L433">set</a> coverage analysis results',
+            function: '<a href="https://github.com/llmhyy/evosuite-plus-plus/blob/master/client/src/main/java/org/evosuite/ga/metaheuristics/MonotonicGA.java#L433">Set</a> coverage analysis results.',
             nodes: []
           },
         ]};
